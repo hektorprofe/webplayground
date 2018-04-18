@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Actualizar página{% endblock %}
+{% block content %}
+{% include 'pages/includes/pages_menu.html'%}
+<main role="main">
+  <div class="container">
+    <div class="row mt-3 mb-5">
+      <div class="col-md-9 mx-auto">
+        <div>
+          {% if 'ok' in request.GET %}
+            <p style="color:green;">
+              Página editada correctamente. 
+              <a href="{% url 'pages:page' page.id page.title|slugify %}">Haz clic aquí para ver el resultado</a>.
+            </p>
+          {% endif %}
+          <form action="" method="post">{% csrf_token %}
+            {{ form.as_p }}
+          <div class="text-center">
+            <input type="submit" class="btn btn-primary btn-block" value="Actualizar página" />
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

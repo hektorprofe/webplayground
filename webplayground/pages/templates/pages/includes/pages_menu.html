@@ -1,0 +1,24 @@
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link href="{% static 'pages/css/custom_ckeditor.css' %}" rel="stylesheet">
+{% if request.user.is_staff %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <span class="navbar-brand" href="#"><i>Administrar</i></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nep">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pages:create' %}"><i>Crear página</i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pages:pages' %}"><i>Listar páginas</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endif %}
