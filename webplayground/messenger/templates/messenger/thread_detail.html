@@ -32,7 +32,7 @@
                       <!-- Mostramos la información del miembro --> 
                       <div>
                         <a href="{% url 'messenger:detail' thread.pk %}">{{user}}</a><br>
-                        <small><i>Hace {{thread.messages.last.created|timesince}}</i></small>
+                        <small><i>Hace {{ message.created | timesince }}</i></small>
                       </div>
                     {% endif %}
                   {% endfor %}
